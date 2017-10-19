@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="./plugins/jqtreetable/jquery.treetable.css"/>
+		<link rel="stylesheet" type="text/css" href="./plugins/jqtreetable/jquery.treetable.theme.default.css"/>
+		<title></title>
+	</head>
+	<body>
+		
+		<table id="treetable" class="treetable">
+			<!--<tr data-tt-id="0">
+				<td>
+					<span class="folder ui-draggable">app</span>
+					</td>
+			</tr>
+			<tr data-tt-id="1" data-tt-parent-id="0">
+				<td><span class="folder ui-draggable">controllers</span></td>
+		  	</tr>
+			<tr data-tt-id="1-1" data-tt-parent-id="1">
+				<td><span class="file ui-draggable">application_controller.rb</span></td>
+		  	</tr>
+		    <tr data-tt-id="2">
+				<td><span class="folder ui-draggable">helpers</span></td>
+		  	</tr>
+		  	<tr data-tt-id="2-1" data-tt-parent-id="2">
+				<td><span class="file ui-draggable">models</span></td>
+			</tr>
+			<tr data-tt-id="2-1" data-tt-parent-id="2">
+				<td><span class="file ui-draggable">views</span></td>
+			</tr>-->
+		</table>
+		
+		
+		<script src="./plugins/jquery-1.11.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./plugins/jqtreetable/jquery.treetable.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var htmls = '<tr data-tt-id="0"><td><span class="folder ui-draggable">app</span></td></tr>'+
+				'<tr data-tt-id="1" data-tt-parent-id="0"><td><span class="folder ui-draggable">controllers</span></td></tr>'+
+				'<tr data-tt-id="1-1" data-tt-parent-id="1"><td><span class="file ui-draggable">application_controller.rb</span></td></tr>'+
+			    '<tr data-tt-id="2"><td><span class="folder ui-draggable">helpers</span></td></tr>'+
+			  	'<tr data-tt-id="2-1" data-tt-parent-id="2"><td><span class="file ui-draggable">models</span></td></tr>'+
+				'<tr data-tt-id="2-1" data-tt-parent-id="2"><td><span class="file ui-draggable">views</span></td></tr>';
+			$("#treetable").html(htmls);	
+			jqtreetable();
+			function jqtreetable(){
+				$("#treetable").treetable({ 
+				expandable: true
+			});
+			// Highlight selected row
+
+			$("#treetable").on("mousedown", "tr", function() {
+			
+			    $(".selected").not(this).removeClass("selected");
+			
+			    $(this).toggleClass("selected");
+			
+			});
+			}
+			
+		</script>
+	</body>
+</html>
